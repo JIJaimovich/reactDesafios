@@ -1,3 +1,7 @@
+import CartWidget from "./CartWidget/CartWidget";
+
+
+
 function NavBar() {
   return (
     <header className="App-header">
@@ -18,9 +22,8 @@ function NavBar() {
           </a>
         </li>
       </ul>
-
-
-
+      <> <CartWidget />
+      </>
     </header>
   )
 }
