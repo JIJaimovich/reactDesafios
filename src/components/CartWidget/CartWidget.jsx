@@ -6,7 +6,7 @@ function CartWidget() {
     return(
       <div>
             <FontAwesomeIcon icon={faCartShopping} />
-        </div>
+      </div>
     )
   }
 export default CartWidget
