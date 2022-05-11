@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const ItemCount = ({stock, inicio}) => {
+const ItemCount = ({stock, inicio, onAdd}) => {
   
   const [count, setCount] = useState(inicio);
   
@@ -12,15 +12,20 @@ const ItemCount = ({stock, inicio}) => {
   }    
   };
   function resta(){
-      if (count > 0) {
+      if (count > inicio) {
         setCount(count - 1);
       }
+  };
+  function onAdd(){
+      console.log(count)
   };
   return(
     <div>
         <p>{count}</p>
         <button onClick={resta}>Click -</button>
         <button onClick={suma}>Click +</button>
+        <br/>
+        <button onClick={onAdd}>Agregar al carrito</button>
          
     </div>  
   )
