@@ -12,8 +12,8 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <ItemListContainer name="coderhouse" />
-      <ItemCount stock={5} inicio={0}/>
+      <ItemListContainer/>
+      {/* <ItemCount stock={5} inicio={0}/> */}
     </div>    
   )
 }
