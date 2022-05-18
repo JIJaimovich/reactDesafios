@@ -1,35 +1,29 @@
 import { useEffect, useState } from "react"
-import ItemList from "./ItemList/ItemList";
+import { productos } from "../data/productos"
+import {listarArray} from '../components/helpers/listarArray'
+import {ItemList} from '../components/ItemList/ItemList'
 
-
-
-
-const getProductos = new Promise((resolve)=>{
-  setTimeout(()=>{
-      resolve( <ItemList/> )        
-  }, 2000)
-})
-
-
-function ItemListContainer() {
+export const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-      getProductos
+      setLoading(true)
+      listarArray(productos)
       .then(respuesta => setProductos(respuesta))
-      .finally(() => setLoading(false))
+      .finally(() => setLoading(true))
   },[]);
 
   return (
-      <>
-        { loading ? 
-          <h2>Cargando...</h2> 
-          : 
-          <ItemList/> 
-        }    
-      </>
+      <div className="contenedor-catalogo">
+        {
+          loading?
+          <div className="cargando">Cargando...</div>
+          :
+          <ItemList productos={productos} /> 
+        }
+      </div>
   )
 }
-  
+
 export default ItemListContainer
